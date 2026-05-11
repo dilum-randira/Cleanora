@@ -145,7 +145,7 @@ function OverviewTab() {
 
 function MapTab() {
   return (
-    <div className="grid h-full min-h-0 gap-4 lg:grid-cols-[1fr_0.38fr]">
+    <div className="grid h-full min-h-0 gap-4 overflow-y-auto pr-1 lg:grid-cols-[1fr_0.38fr]">
       <div className="min-h-[16rem] overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
         <iframe
           title="Cleanora Services Location Map"
@@ -302,7 +302,7 @@ function ContactTabletShowcase() {
             <p className="text-sm font-black uppercase tracking-[0.22em] text-cleanora-mint">
               Contact & Location
             </p>
-            <h2 className="mx-auto mt-4 max-w-[22rem] break-words text-3xl font-black leading-tight text-cleanora-ink sm:max-w-4xl sm:text-4xl md:text-6xl">
+            <h2 className="mx-auto mt-4 max-w-[18rem] break-words text-2xl font-black leading-tight text-cleanora-ink sm:max-w-4xl sm:text-4xl md:text-6xl">
               Reach Cleanora Faster
               <br />
               <span className="text-cleanora-mint">Inside One Smart Contact Hub</span>
