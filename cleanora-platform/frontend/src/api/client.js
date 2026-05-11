@@ -26,6 +26,12 @@ export async function getServices() {
   return Array.isArray(result) ? result : result.data || [];
 }
 
+export async function getReviews() {
+  const result = await apiRequest('/reviews');
+
+  return Array.isArray(result) ? result : result.data || [];
+}
+
 export async function createBooking(bookingData) {
   return apiRequest('/bookings', {
     method: 'POST',

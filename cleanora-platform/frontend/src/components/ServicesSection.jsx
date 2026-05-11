@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { getServices } from '../api/client.js';
 import SectionHeader from './SectionHeader.jsx';
 import ServiceCard from './ServiceCard.jsx';
+import { Card, CardContent } from './ui/card.jsx';
+import { Skeleton } from './ui/skeleton.jsx';
 
 function ServicesSection() {
   const [services, setServices] = useState([]);
@@ -35,7 +37,7 @@ function ServicesSection() {
   }, []);
 
   return (
-    <section className="bg-white px-4 py-16 sm:px-6 lg:px-8">
+    <section id="services" className="bg-white px-4 py-20 sm:px-6 lg:px-8">
       <SectionHeader
         eyebrow="Services"
         title="Service menu"
@@ -45,12 +47,14 @@ function ServicesSection() {
       {status === 'loading' && (
         <div className="mx-auto grid max-w-7xl gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {Array.from({ length: 4 }).map((_, index) => (
-            <div key={index} className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-              <div className="aspect-[4/3] animate-pulse rounded-lg bg-cleanora-mist" />
-              <div className="mt-5 h-5 w-3/4 animate-pulse rounded bg-slate-200" />
-              <div className="mt-3 h-4 w-full animate-pulse rounded bg-slate-100" />
-              <div className="mt-2 h-4 w-5/6 animate-pulse rounded bg-slate-100" />
-            </div>
+            <Card key={index}>
+              <CardContent className="p-4">
+                <Skeleton className="aspect-[4/3]" />
+                <Skeleton className="mt-5 h-5 w-3/4" />
+                <Skeleton className="mt-3 h-4 w-full" />
+                <Skeleton className="mt-2 h-4 w-5/6" />
+              </CardContent>
+            </Card>
           ))}
         </div>
       )}

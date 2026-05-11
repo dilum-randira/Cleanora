@@ -2,11 +2,11 @@
 
 Cleanora is a premium MERN cleaning service management platform. This foundation prepares a separated React frontend and Node/Express backend for a future booking system, protected admin dashboard, dynamic services, gallery, reviews, WhatsApp contact flow, and a high-quality 3D animated hero section.
 
-This step includes the initial full-stack foundation, dynamic service menu module, online booking form, and protected admin dashboard. 3D functionality will be added later.
+This step includes the initial full-stack foundation, dynamic service menu module, online booking form, protected admin dashboard, gallery, reviews, contact section, Google Map embed, WhatsApp button, and completed footer. 3D functionality will be added later.
 
 ## Tech Stack
 
-- Frontend: React, Vite, Tailwind CSS, React Router
+- Frontend: React, Vite, Tailwind CSS, React Router, shadcn/ui-style components
 - Backend: Node.js, Express.js, MongoDB, Mongoose
 - Tooling: dotenv, CORS, Nodemon
 
@@ -159,6 +159,20 @@ Protected admin booking routes require:
 Authorization: Bearer YOUR_TOKEN
 ```
 
+## Review API
+
+```http
+GET /api/reviews
+POST /api/reviews
+```
+
+Seed the default customer reviews:
+
+```bash
+cd cleanora-platform/backend
+npm run seed:reviews
+```
+
 ## Environment Variables
 
 Create a `.env` file in each app by copying the examples.
@@ -188,6 +202,12 @@ VITE_API_BASE_URL=http://localhost:5000/api
 - Dynamic service cards loaded from MongoDB
 - Online booking form saves customer bookings to MongoDB
 - Protected admin login and booking dashboard added
+- Gallery grid with 8 cleaned-space images added
+- Reviews section fetches testimonials from MongoDB
+- Contact section with business details, Google Map, and WhatsApp CTA added
+- Floating WhatsApp button added across all pages
+- Premium footer with quick links, services, and contact details added
+- Frontend UI upgraded with editable shadcn/ui-style Tailwind components
 - React Router page placeholders added
 - API utility prepared for backend requests
 - Express backend scaffolded
@@ -195,13 +215,11 @@ VITE_API_BASE_URL=http://localhost:5000/api
 - Health check route added
 - Service model, controller, routes, and seeder added
 - Booking model, controller, and test routes added
+- Review model, controller, routes, and seeder added
 - JWT admin authentication middleware added
 - Admin booking completion and deletion actions added
 - Error handling middleware added
 
 ## Future Modules
 
-- Gallery and review management
-- Contact form and WhatsApp integration
-- Google Map embed
 - React Three Fiber 3D animated hero section

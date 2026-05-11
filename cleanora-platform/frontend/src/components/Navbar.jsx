@@ -1,9 +1,12 @@
 import { Link, NavLink } from 'react-router-dom';
+import { Button } from './ui/button.jsx';
 
 const navItems = [
   { label: 'Home', to: '/' },
-  { label: 'Services', to: '/services' },
-  { label: 'Booking', to: '/book' },
+  { label: 'Services', to: '/#services' },
+  { label: 'Gallery', to: '/#gallery' },
+  { label: 'Reviews', to: '/#reviews' },
+  { label: 'Contact', to: '/#contact' },
   { label: 'Admin', to: '/admin/login' }
 ];
 
@@ -22,7 +25,7 @@ function Navbar() {
             </span>
           </Link>
 
-          <div className="hidden items-center gap-7 md:flex">
+          <div className="hidden items-center gap-5 lg:flex">
             {navItems.map((item) => (
               <NavLink
                 key={item.to}
@@ -38,21 +41,18 @@ function Navbar() {
             ))}
           </div>
 
-          <Link
-            to="/book"
-            className="hidden rounded-lg bg-cleanora-ink px-5 py-3 text-sm font-bold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-cleanora-charcoal sm:inline-flex"
-          >
-            Book Now
-          </Link>
+          <Button size="sm" asChild className="hidden sm:inline-flex">
+            <Link to="/book">Book Now</Link>
+          </Button>
         </div>
 
-        <div className="mt-4 grid grid-cols-4 gap-2 md:hidden">
+        <div className="mt-4 flex flex-wrap gap-2 lg:hidden">
           {navItems.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
-                `rounded-lg px-2 py-2 text-center text-xs font-bold transition ${
+                `flex-1 rounded-lg px-2 py-2 text-center text-xs font-bold transition ${
                   isActive ? 'bg-cleanora-mist text-cleanora-ink' : 'text-slate-500 hover:bg-slate-100'
                 }`
               }

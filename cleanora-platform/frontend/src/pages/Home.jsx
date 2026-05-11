@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
+import ContactSection from '../components/ContactSection.jsx';
+import GallerySection from '../components/GallerySection.jsx';
+import ReviewsSection from '../components/ReviewsSection.jsx';
 import SectionHeader from '../components/SectionHeader.jsx';
 import ServicesSection from '../components/ServicesSection.jsx';
-
-const galleryItems = ['Kitchen Shine', 'Living Room Refresh', 'Workspace Polish'];
+import { Button } from '../components/ui/button.jsx';
+import { Card, CardContent } from '../components/ui/card.jsx';
 
 function Home() {
   return (
@@ -20,24 +23,19 @@ function Home() {
               Spotless spaces, effortless booking, and a polished customer experience for modern homes and workplaces.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link
-                to="/book"
-                className="inline-flex justify-center rounded-lg bg-cleanora-ink px-6 py-4 text-sm font-bold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-cleanora-charcoal"
-              >
-                Book Now
-              </Link>
-              <Link
-                to="/services"
-                className="inline-flex justify-center rounded-lg border border-slate-300 bg-white px-6 py-4 text-sm font-bold text-cleanora-ink transition hover:border-cleanora-mint hover:text-cleanora-mint"
-              >
-                View Services
-              </Link>
+              <Button size="lg" asChild>
+                <Link to="/book">Book Now</Link>
+              </Button>
+              <Button variant="outline" size="lg" asChild>
+                <Link to="/#services">View Services</Link>
+              </Button>
             </div>
           </div>
 
           <div className="relative min-h-[360px] rounded-lg bg-cleanora-mist p-5 shadow-soft">
             <div className="absolute inset-5 rounded-lg bg-white/75" />
-            <div className="relative grid h-full min-h-[320px] content-between rounded-lg border border-white bg-white p-5">
+            <Card className="relative grid h-full min-h-[320px] content-between border-white">
+              <CardContent className="grid h-full content-between p-5">
               <div className="flex items-center justify-between">
                 <span className="rounded-lg bg-cleanora-ink px-4 py-2 text-sm font-bold text-white">Today</span>
                 <span className="text-sm font-semibold text-cleanora-mint">98% satisfaction</span>
@@ -59,27 +57,32 @@ function Home() {
                 </div>
               </div>
               <div className="rounded-lg bg-cleanora-ink p-4 text-sm leading-6 text-slate-200">
-                Future 3D hero space reserved for React Three Fiber animation.
+                Service browsing, online booking, and admin review are connected for everyday operations.
               </div>
-            </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
-      <section className="px-4 py-16 sm:px-6 lg:px-8">
+      <section id="about" className="px-4 py-20 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="About"
           title="Built for polished service operations"
           description="Cleanora will combine customer booking, service management, and admin workflows inside one refined platform."
         />
         <div className="mx-auto grid max-w-5xl gap-5 md:grid-cols-3">
-          {['Trusted professionals', 'Flexible scheduling', 'Quality-first process'].map((item) => (
-            <div key={item} className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-lg font-bold">{item}</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-600">
-                Placeholder content prepared for the full About module.
-              </p>
-            </div>
+          {[
+            ['Trusted professionals', 'Careful teams for residential and commercial cleaning needs.'],
+            ['Flexible scheduling', 'Customers can choose a service, date, time, and address online.'],
+            ['Quality-first process', 'Admin staff can review incoming requests and track completed jobs.']
+          ].map(([title, description]) => (
+            <Card key={title}>
+              <CardContent className="p-6">
+                <h3 className="text-lg font-bold">{title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{description}</p>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </section>
@@ -90,33 +93,17 @@ function Home() {
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 rounded-lg bg-cleanora-ink p-8 text-white shadow-soft md:flex-row md:items-center">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-cleanora-mint">Booking Preview</p>
-            <h2 className="mt-3 text-3xl font-black">Ready for the future booking flow</h2>
+            <h2 className="mt-3 text-3xl font-black">Schedule a polished clean in minutes</h2>
           </div>
-          <Link
-            to="/book"
-            className="rounded-lg bg-white px-6 py-4 text-sm font-bold text-cleanora-ink transition hover:-translate-y-0.5"
-          >
-            Open Booking Page
-          </Link>
+          <Button variant="secondary" size="lg" asChild>
+            <Link to="/book">Open Booking Page</Link>
+          </Button>
         </div>
       </section>
 
-      <section className="bg-white px-4 py-16 sm:px-6 lg:px-8">
-        <SectionHeader
-          eyebrow="Gallery"
-          title="Results preview"
-          description="Gallery and review content will be connected in a later development step."
-        />
-        <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-3">
-          {galleryItems.map((item) => (
-            <div key={item} className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-              <div className="grid aspect-[4/3] place-items-center rounded-lg bg-cleanora-mist text-sm font-bold text-cleanora-ink">
-                {item}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <GallerySection />
+      <ReviewsSection />
+      <ContactSection />
     </>
   );
 }

@@ -1,7 +1,21 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { toast } from 'sonner';
 import { createBooking, getServices } from '../api/client.js';
 import SectionHeader from '../components/SectionHeader.jsx';
+import { Badge } from '../components/ui/badge.jsx';
+import { Button } from '../components/ui/button.jsx';
+import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card.jsx';
+import { Input } from '../components/ui/input.jsx';
+import { Label } from '../components/ui/label.jsx';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '../components/ui/select.jsx';
+import { Textarea } from '../components/ui/textarea.jsx';
 
 const initialFormData = {
   customerName: '',
@@ -67,7 +81,6 @@ function Booking() {
   const [formData, setFormData] = useState({ ...initialFormData, service: serviceId });
   const [formErrors, setFormErrors] = useState({});
   const [submitStatus, setSubmitStatus] = useState('idle');
-  const [submitMessage, setSubmitMessage] = useState('');
 
   useEffect(() => {
     let isMounted = true;
@@ -120,7 +133,11 @@ function Booking() {
       ...currentErrors,
       [name]: ''
     }));
-    setSubmitMessage('');
+  }
+
+  function handleServiceChange(value) {
+    setFormData((currentData) => ({ ...currentData, service: value }));
+    setFormErrors((currentErrors) => ({ ...currentErrors, service: '' }));
   }
 
   async function handleSubmit(event) {
@@ -131,23 +148,22 @@ function Booking() {
 
     if (Object.keys(validationErrors).length > 0) {
       setSubmitStatus('error');
-      setSubmitMessage('Please complete the required fields before submitting.');
+      toast.error('Please complete the required fields before submitting.');
       return;
     }
 
     setSubmitStatus('submitting');
-    setSubmitMessage('');
 
     try {
       const result = await createBooking(formData);
 
       setSubmitStatus('success');
-      setSubmitMessage(result.message || 'Booking submitted successfully.');
+      toast.success(result.message || 'Booking submitted successfully.');
       setFormData({ ...initialFormData, service: serviceId || '' });
       setFormErrors({});
     } catch (error) {
       setSubmitStatus('error');
-      setSubmitMessage(error.message || 'Booking submission failed. Please try again.');
+      toast.error(error.message || 'Booking submission failed. Please try again.');
     }
   }
 
@@ -164,26 +180,24 @@ function Booking() {
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-cleanora-mint">Selected Service</p>
 
           {selectedService ? (
-            <div className="mt-6 overflow-hidden rounded-lg bg-white text-cleanora-ink">
+            <Card className="mt-6 overflow-hidden">
               <img
                 src={selectedService.imageUrl}
                 alt={selectedService.name}
                 className="h-52 w-full object-cover"
               />
-              <div className="p-5">
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-cleanora-mint">
-                  {selectedService.category}
-                </p>
-                <h2 className="mt-2 text-2xl font-black">{selectedService.name}</h2>
+              <CardContent className="p-5">
+                <Badge variant="secondary">{selectedService.category}</Badge>
+                <h2 className="mt-3 text-2xl font-black">{selectedService.name}</h2>
                 <p className="mt-3 text-sm leading-6 text-slate-600">{selectedService.description}</p>
                 <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-4">
-                  <span className="text-sm font-semibold text-slate-500">{selectedService.duration}</span>
+                  <Badge variant="outline">{selectedService.duration}</Badge>
                   <span className="text-xl font-black">
                     LKR {Number(selectedService.price).toLocaleString('en-LK')}
                   </span>
                 </div>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           ) : (
             <div className="mt-6 rounded-lg border border-white/10 bg-white/5 p-5 text-sm leading-6 text-slate-300">
               Select a service from the form to preview the cleaning package here.
@@ -198,144 +212,147 @@ function Booking() {
           </div>
         </aside>
 
-        <form onSubmit={handleSubmit} className="rounded-lg border border-slate-200 bg-white p-6 shadow-soft">
+        <Card>
+          <CardHeader>
+            <CardTitle>Booking Details</CardTitle>
+          </CardHeader>
+          <CardContent>
+        <form onSubmit={handleSubmit}>
           {servicesStatus === 'error' && (
             <div className="mb-6 rounded-lg border border-red-200 bg-red-50 p-4 text-sm font-semibold text-red-700">
               {servicesError}
             </div>
           )}
 
-          {submitMessage && (
-            <div
-              className={`mb-6 rounded-lg border p-4 text-sm font-semibold ${
-                submitStatus === 'success'
-                  ? 'border-emerald-200 bg-emerald-50 text-emerald-700'
-                  : 'border-red-200 bg-red-50 text-red-700'
-              }`}
-            >
-              {submitMessage}
-            </div>
-          )}
-
           <div className="grid gap-5 md:grid-cols-2">
-            <label className="block">
-              <span className="text-sm font-bold text-cleanora-ink">Customer Name</span>
-              <input
+            <div>
+              <Label htmlFor="customerName">Customer Name</Label>
+              <Input
+                id="customerName"
                 type="text"
                 name="customerName"
                 value={formData.customerName}
                 onChange={handleChange}
-                className="mt-2 w-full rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-cleanora-mint focus:ring-4 focus:ring-cleanora-mint/10"
+                className="mt-2"
                 placeholder="Your full name"
               />
               <FieldError message={formErrors.customerName} />
-            </label>
+            </div>
 
-            <label className="block">
-              <span className="text-sm font-bold text-cleanora-ink">Email</span>
-              <input
+            <div>
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="mt-2 w-full rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-cleanora-mint focus:ring-4 focus:ring-cleanora-mint/10"
+                className="mt-2"
                 placeholder="you@example.com"
               />
               <FieldError message={formErrors.email} />
-            </label>
+            </div>
 
-            <label className="block">
-              <span className="text-sm font-bold text-cleanora-ink">Phone</span>
-              <input
+            <div>
+              <Label htmlFor="phone">Phone</Label>
+              <Input
+                id="phone"
                 type="tel"
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className="mt-2 w-full rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-cleanora-mint focus:ring-4 focus:ring-cleanora-mint/10"
+                className="mt-2"
                 placeholder="+94 77 000 0000"
               />
               <FieldError message={formErrors.phone} />
-            </label>
+            </div>
 
-            <label className="block">
-              <span className="text-sm font-bold text-cleanora-ink">Service</span>
-              <select
-                name="service"
+            <div>
+              <Label>Service</Label>
+              <Select
                 value={formData.service}
-                onChange={handleChange}
+                onValueChange={handleServiceChange}
                 disabled={servicesStatus === 'loading'}
-                className="mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-cleanora-mint focus:ring-4 focus:ring-cleanora-mint/10 disabled:cursor-not-allowed disabled:bg-slate-100"
               >
-                <option value="">
-                  {servicesStatus === 'loading' ? 'Loading services...' : 'Select a service'}
-                </option>
-                {services.map((service) => (
-                  <option key={service._id} value={service._id}>
-                    {service.name}
-                  </option>
-                ))}
-              </select>
+                <SelectTrigger className="mt-2">
+                  <SelectValue placeholder={servicesStatus === 'loading' ? 'Loading services...' : 'Select a service'} />
+                </SelectTrigger>
+                <SelectContent>
+                  {services.map((service) => (
+                    <SelectItem key={service._id} value={service._id}>
+                      {service.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
               <FieldError message={formErrors.service} />
-            </label>
+            </div>
 
-            <label className="block">
-              <span className="text-sm font-bold text-cleanora-ink">Preferred Date</span>
-              <input
+            <div>
+              <Label htmlFor="date">Preferred Date</Label>
+              <Input
+                id="date"
                 type="date"
                 name="date"
                 value={formData.date}
                 onChange={handleChange}
-                className="mt-2 w-full rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-cleanora-mint focus:ring-4 focus:ring-cleanora-mint/10"
+                className="mt-2"
               />
               <FieldError message={formErrors.date} />
-            </label>
+            </div>
 
-            <label className="block">
-              <span className="text-sm font-bold text-cleanora-ink">Preferred Time</span>
-              <input
+            <div>
+              <Label htmlFor="time">Preferred Time</Label>
+              <Input
+                id="time"
                 type="time"
                 name="time"
                 value={formData.time}
                 onChange={handleChange}
-                className="mt-2 w-full rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-cleanora-mint focus:ring-4 focus:ring-cleanora-mint/10"
+                className="mt-2"
               />
               <FieldError message={formErrors.time} />
-            </label>
+            </div>
           </div>
 
-          <label className="mt-5 block">
-            <span className="text-sm font-bold text-cleanora-ink">Service Address</span>
-            <textarea
+          <div className="mt-5">
+            <Label htmlFor="address">Service Address</Label>
+            <Textarea
+              id="address"
               name="address"
               value={formData.address}
               onChange={handleChange}
               rows="3"
-              className="mt-2 w-full resize-none rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-cleanora-mint focus:ring-4 focus:ring-cleanora-mint/10"
+              className="mt-2"
               placeholder="House number, street, city, and any access notes"
             />
             <FieldError message={formErrors.address} />
-          </label>
+          </div>
 
-          <label className="mt-5 block">
-            <span className="text-sm font-bold text-cleanora-ink">Notes</span>
-            <textarea
+          <div className="mt-5">
+            <Label htmlFor="notes">Notes</Label>
+            <Textarea
+              id="notes"
               name="notes"
               value={formData.notes}
               onChange={handleChange}
               rows="3"
-              className="mt-2 w-full resize-none rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-cleanora-mint focus:ring-4 focus:ring-cleanora-mint/10"
+              className="mt-2"
               placeholder="Optional: pets, parking, special cleaning requests"
             />
-          </label>
+          </div>
 
-          <button
+          <Button
             type="submit"
             disabled={isSubmitting || servicesStatus !== 'success'}
-            className="mt-6 w-full rounded-lg bg-cleanora-ink px-6 py-4 text-sm font-black text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-cleanora-charcoal disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
+            className="mt-6 w-full"
+            size="lg"
           >
             {isSubmitting ? 'Submitting Booking...' : 'Submit Booking'}
-          </button>
+          </Button>
         </form>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );
