@@ -17,9 +17,9 @@ function MainLayout() {
   }, [location.hash]);
 
   return (
-    <div className="min-h-screen bg-cleanora-porcelain text-cleanora-ink">
+    <div className="min-h-screen overflow-x-hidden bg-cleanora-porcelain text-cleanora-ink">
       <Navbar />
-      <main>
+      <main className="overflow-x-hidden">
         <Outlet />
       </main>
       <Footer />

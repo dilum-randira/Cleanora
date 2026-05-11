@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getServices } from '../api/client.js';
-import SectionHeader from './SectionHeader.jsx';
+import LampSectionHeader from './common/LampSectionHeader.jsx';
 import ServiceCard from './ServiceCard.jsx';
 import { Card, CardContent } from './ui/card.jsx';
 import { Skeleton } from './ui/skeleton.jsx';
@@ -38,9 +38,10 @@ function ServicesSection() {
 
   return (
     <section id="services" className="bg-white px-4 py-20 sm:px-6 lg:px-8">
-      <SectionHeader
-        eyebrow="Services"
+      <LampSectionHeader
+        eyebrow="SERVICES"
         title="Service menu"
+        highlight="Professional cleaning, one click away"
         description="Cleaning categories are loaded dynamically from the Cleanora backend."
       />
 
