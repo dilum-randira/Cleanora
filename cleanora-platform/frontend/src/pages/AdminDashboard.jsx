@@ -6,6 +6,7 @@ import {
   getBookings,
   markBookingCompleted
 } from '../api/client.js';
+import BookingActivityChart from '../components/admin/BookingActivityChart.jsx';
 import SectionHeader from '../components/SectionHeader.jsx';
 import {
   AlertDialog,
@@ -211,6 +212,13 @@ function AdminDashboard() {
           <div className="mt-8 grid gap-4">
             <Card>
               <CardContent className="p-6">
+                <Skeleton className="h-6 w-44" />
+                <Skeleton className="mt-2 h-4 w-72 max-w-full" />
+                <Skeleton className="mt-6 h-[280px] w-full" />
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="p-6">
                 <Skeleton className="h-5 w-48" />
                 <Skeleton className="mt-5 h-12 w-full" />
                 <Skeleton className="mt-3 h-12 w-full" />
@@ -229,6 +237,8 @@ function AdminDashboard() {
             </CardContent>
           </Card>
         )}
+
+        {status === 'success' && <BookingActivityChart bookings={bookings} />}
 
         {status === 'success' && bookings.length === 0 && (
           <Card className="mt-8">

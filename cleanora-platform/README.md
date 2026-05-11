@@ -202,6 +202,7 @@ VITE_API_BASE_URL=http://localhost:5000/api
 - Dynamic service cards loaded from MongoDB
 - Online booking form saves customer bookings to MongoDB
 - Protected admin login and booking dashboard added
+- Booking analytics chart for pending and completed bookings added to the admin dashboard
 - Gallery grid with 8 cleaned-space images added
 - Reviews section fetches testimonials from MongoDB
 - Contact section with business details, Google Map, and WhatsApp CTA added
