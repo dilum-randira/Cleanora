@@ -36,7 +36,7 @@ function ServiceCard({ service }) {
         <div className="mt-5 flex items-center justify-between gap-4 border-t border-slate-100 pt-5">
           <p className="text-lg font-black text-cleanora-ink">{formatPrice(service.price)}</p>
           <Link
-            to="/booking"
+            to={`/book?serviceId=${service._id}`}
             className="rounded-lg bg-cleanora-ink px-4 py-3 text-center text-xs font-bold text-white transition hover:bg-cleanora-charcoal"
           >
             Book This Service

@@ -21,7 +21,7 @@ function Home() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
-                to="/booking"
+                to="/book"
                 className="inline-flex justify-center rounded-lg bg-cleanora-ink px-6 py-4 text-sm font-bold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-cleanora-charcoal"
               >
                 Book Now
@@ -93,7 +93,7 @@ function Home() {
             <h2 className="mt-3 text-3xl font-black">Ready for the future booking flow</h2>
           </div>
           <Link
-            to="/booking"
+            to="/book"
             className="rounded-lg bg-white px-6 py-4 text-sm font-bold text-cleanora-ink transition hover:-translate-y-0.5"
           >
             Open Booking Page

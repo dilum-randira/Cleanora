@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 const navItems = [
   { label: 'Home', to: '/' },
   { label: 'Services', to: '/services' },
-  { label: 'Booking', to: '/booking' },
+  { label: 'Booking', to: '/book' },
   { label: 'Admin', to: '/admin/login' }
 ];
 
@@ -39,7 +39,7 @@ function Navbar() {
           </div>
 
           <Link
-            to="/booking"
+            to="/book"
             className="hidden rounded-lg bg-cleanora-ink px-5 py-3 text-sm font-bold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-cleanora-charcoal sm:inline-flex"
           >
             Book Now
