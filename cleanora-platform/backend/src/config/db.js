@@ -1,0 +1,15 @@
+import mongoose from 'mongoose';
+
+async function connectDB() {
+  const mongoUri = process.env.MONGO_URI;
+
+  if (!mongoUri) {
+    console.warn('MONGO_URI is not set. Skipping MongoDB connection for now.');
+    return;
+  }
+
+  await mongoose.connect(mongoUri);
+  console.log('MongoDB connected');
+}
+
+export default connectDB;
