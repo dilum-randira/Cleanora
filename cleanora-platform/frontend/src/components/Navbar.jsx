@@ -46,13 +46,13 @@ function Navbar() {
           </Button>
         </div>
 
-        <div className="mt-4 flex flex-wrap gap-2 lg:hidden">
+        <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:hidden">
           {navItems.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
-                `flex-1 rounded-lg px-2 py-2 text-center text-xs font-bold transition ${
+                `rounded-lg px-2 py-2 text-center text-xs font-bold transition ${
                   isActive ? 'bg-cleanora-mist text-cleanora-ink' : 'text-slate-500 hover:bg-slate-100'
                 }`
               }
