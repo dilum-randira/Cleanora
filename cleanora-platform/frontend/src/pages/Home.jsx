@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import GallerySection from '../components/GallerySection.jsx';
 import HeroSection from '../components/hero/HeroSection.jsx';
+import BeforeAfterCompareSection from '../components/home/BeforeAfterCompareSection.jsx';
 import ReviewsSection from '../components/ReviewsSection.jsx';
 import SectionHeader from '../components/SectionHeader.jsx';
 import ServicesSection from '../components/ServicesSection.jsx';
@@ -36,6 +37,8 @@ function Home() {
           ))}
         </div>
       </section>
+
+      <BeforeAfterCompareSection />
 
       <ServicesSection />
 
