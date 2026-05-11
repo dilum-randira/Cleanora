@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import ContactSection from '../components/ContactSection.jsx';
 import GallerySection from '../components/GallerySection.jsx';
 import HeroSection from '../components/hero/HeroSection.jsx';
 import ReviewsSection from '../components/ReviewsSection.jsx';
@@ -7,6 +6,9 @@ import SectionHeader from '../components/SectionHeader.jsx';
 import ServicesSection from '../components/ServicesSection.jsx';
 import { Button } from '../components/ui/button.jsx';
 import { Card, CardContent } from '../components/ui/card.jsx';
+
+const whatsappUrl =
+  'https://wa.me/94771234567?text=Hello%20Cleanora%2C%20I%20would%20like%20to%20ask%20about%20your%20cleaning%20services.';
 
 function Home() {
   return (
@@ -51,7 +53,30 @@ function Home() {
 
       <GallerySection />
       <ReviewsSection />
-      <ContactSection />
+
+      <section className="bg-white px-4 py-16 sm:px-6 lg:px-8">
+        <Card className="mx-auto max-w-6xl bg-cleanora-porcelain shadow-sm">
+          <CardContent className="flex flex-col items-start justify-between gap-6 p-8 md:flex-row md:items-center">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.2em] text-cleanora-mint">Need help?</p>
+              <h2 className="mt-3 text-3xl font-black text-cleanora-ink">Need help choosing a service?</h2>
+              <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">
+                Talk to Cleanora Services for package guidance, quick queries, and location details.
+              </p>
+            </div>
+            <div className="flex w-full flex-col gap-3 sm:flex-row md:w-auto">
+              <Button asChild size="lg">
+                <Link to="/contact">Contact Us</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <a href={whatsappUrl} target="_blank" rel="noreferrer">
+                  WhatsApp Us
+                </a>
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
     </>
   );
 }

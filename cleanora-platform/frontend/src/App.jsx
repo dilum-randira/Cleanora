@@ -4,6 +4,7 @@ import ProtectedRoute from './components/ProtectedRoute.jsx';
 import AdminDashboard from './pages/AdminDashboard.jsx';
 import AdminLogin from './pages/AdminLogin.jsx';
 import Booking from './pages/Booking.jsx';
+import Contact from './pages/Contact.jsx';
 import Home from './pages/Home.jsx';
 import NotFound from './pages/NotFound.jsx';
 import Services from './pages/Services.jsx';
@@ -14,6 +15,7 @@ function App() {
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/book" element={<Booking />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/admin/login" element={<AdminLogin />} />

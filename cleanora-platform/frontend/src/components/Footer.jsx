@@ -6,7 +6,7 @@ const quickLinks = [
   ['Services', '/#services'],
   ['Gallery', '/#gallery'],
   ['Reviews', '/#reviews'],
-  ['Contact', '/#contact']
+  ['Contact', '/contact']
 ];
 
 const serviceLinks = [

@@ -1,0 +1,5 @@
+Place your final contact/map preview image here:
+
+frontend/public/images/contact-map-preview.png
+
+The Contact page already uses /images/contact-map-preview.png and falls back to a remote cleaning-office image if this PNG is not available yet.
