@@ -114,14 +114,14 @@ function BookingActivityChart({ bookings }) {
   const hasBookings = Array.isArray(bookings) && bookings.length > 0;
 
   return (
-    <Card className="mt-8 shadow-soft">
-      <CardHeader className="flex flex-col gap-4 border-b border-slate-100 sm:flex-row sm:items-start sm:justify-between">
+    <Card className="overflow-hidden rounded-2xl border-slate-200/70 bg-white/80 shadow-xl shadow-cleanora-ink/5 backdrop-blur-xl">
+      <CardHeader className="flex flex-col gap-4 border-b border-slate-100 bg-gradient-to-br from-white via-white to-cleanora-mist/50 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <CardTitle>Booking Activity</CardTitle>
+          <CardTitle className="text-xl">Booking Activity</CardTitle>
           <CardDescription>Track pending and completed bookings over time.</CardDescription>
         </div>
         <Select value={timeRange} onValueChange={setTimeRange}>
-          <SelectTrigger className="w-full sm:w-44" aria-label="Select booking activity time range">
+          <SelectTrigger className="w-full rounded-full border-slate-200 bg-white/90 sm:w-44" aria-label="Select booking activity time range">
             <SelectValue placeholder="Last 30 days" />
           </SelectTrigger>
           <SelectContent>
@@ -133,13 +133,13 @@ function BookingActivityChart({ bookings }) {
           </SelectContent>
         </Select>
       </CardHeader>
-      <CardContent className="p-6">
+      <CardContent className="p-5 sm:p-6">
         {!hasBookings ? (
-          <div className="grid h-[280px] place-items-center rounded-lg bg-cleanora-porcelain text-center">
+          <div className="grid h-[280px] place-items-center rounded-2xl bg-cleanora-porcelain text-center">
             <p className="text-sm font-bold text-slate-600">No booking activity yet.</p>
           </div>
         ) : (
-          <ChartContainer config={chartConfig} className="h-[280px] w-full">
+          <ChartContainer config={chartConfig} className="h-[300px] w-full">
             <AreaChart data={chartData} margin={{ left: 0, right: 12, top: 12 }}>
               <defs>
                 <linearGradient id="fillPending" x1="0" y1="0" x2="0" y2="1">

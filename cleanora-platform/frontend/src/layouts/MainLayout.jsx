@@ -7,6 +7,7 @@ import { Toaster } from '../components/ui/sonner.jsx';
 
 function MainLayout() {
   const location = useLocation();
+  const isAdminDashboard = location.pathname === '/admin/dashboard';
 
   useEffect(() => {
     if (location.hash) {
@@ -22,7 +23,7 @@ function MainLayout() {
       <main className="overflow-x-hidden">
         <Outlet />
       </main>
-      <Footer />
+      {!isAdminDashboard && <Footer />}
       <WhatsAppButton />
       <Toaster />
     </div>
