@@ -40,7 +40,10 @@ function HeroSection() {
 
           <div className="mt-8 grid gap-3 sm:grid-cols-3">
             {trustStats.map((stat) => (
-              <Card key={stat} className="bg-cleanora-porcelain">
+              <Card
+                key={stat}
+                className="border-white/70 bg-white/65 shadow-xl shadow-cleanora-ink/5 backdrop-blur-xl"
+              >
                 <CardContent className="p-4">
                   <p className="text-sm font-black text-cleanora-ink">{stat}</p>
                 </CardContent>

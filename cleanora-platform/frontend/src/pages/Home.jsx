@@ -43,7 +43,7 @@ function Home() {
       <ServicesSection />
 
       <section className="px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 rounded-lg bg-cleanora-ink p-8 text-white shadow-soft md:flex-row md:items-center">
+        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 rounded-2xl border border-white/15 bg-cleanora-ink/95 p-8 text-white shadow-xl shadow-cleanora-ink/20 backdrop-blur-xl md:flex-row md:items-center">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-cleanora-mint">Booking Preview</p>
             <h2 className="mt-3 text-3xl font-black">Schedule a polished clean in minutes</h2>
@@ -58,7 +58,7 @@ function Home() {
       <ReviewsSection />
 
       <section className="bg-white px-4 py-16 sm:px-6 lg:px-8">
-        <Card className="mx-auto max-w-6xl bg-cleanora-porcelain shadow-sm">
+        <Card className="mx-auto max-w-6xl border-white/70 bg-white/70 shadow-xl shadow-cleanora-ink/5 backdrop-blur-xl">
           <CardContent className="flex flex-col items-start justify-between gap-6 p-8 md:flex-row md:items-center">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.2em] text-cleanora-mint">Need help?</p>

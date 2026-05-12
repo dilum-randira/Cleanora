@@ -1,0 +1,33 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tile" x1="54" y1="44" x2="206" y2="210" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1D5A89"/>
+      <stop offset="0.5" stop-color="#143A63"/>
+      <stop offset="1" stop-color="#0E2440"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="120" y1="150" x2="203" y2="70" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2EC4B6"/>
+      <stop offset="0.52" stop-color="#67E2D6"/>
+      <stop offset="1" stop-color="#B9FFF5"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(166 104) rotate(122) scale(112)">
+      <stop stop-color="#5EEAD4" stop-opacity="0.9"/>
+      <stop offset="0.5" stop-color="#2EC4B6" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#14213D" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="30" y="28" width="196" height="200" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#061428" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="#14213D"/>
+  <rect width="256" height="256" rx="56" fill="url(#glow)"/>
+  <g filter="url(#shadow)">
+    <rect x="53" y="48" width="150" height="150" rx="42" fill="url(#tile)" stroke="#69DCD2" stroke-opacity="0.22" stroke-width="2"/>
+    <path d="M149.5 77.5C142.1 73.5 133.9 71.5 124.9 71.5C104 71.5 87.2 84.5 81.1 104.2C74.6 125.5 82.9 148.9 101.4 160.8C116.2 170.3 135.4 170.8 150.6 162.2L142.7 137.8C134.9 143.2 124.6 144.5 116.2 140.5C107.1 136.2 101.8 126.8 102.6 116.7C103.5 105.5 111 96.4 121.9 93.6C130 91.5 139 93.2 146.2 97.7L149.5 77.5Z" fill="white"/>
+    <path d="M122 147C154 107 183 105 190 72C202 104 188 148 124 166C143 144 163 124 190 94C165 115 146 136 122 147Z" fill="url(#leaf)"/>
+    <path d="M122 147C151 121 173 108 190 72C188 122 163 153 124 166C134 157 142 149 149 141C140 144 131 146 122 147Z" fill="#0E2440" fill-opacity="0.28"/>
+    <path d="M185 64L191 78L205 84L191 90L185 104L179 90L165 84L179 78L185 64Z" fill="#A7FFF5"/>
+    <path d="M74 129L80 143L94 149L80 155L74 169L68 155L54 149L68 143L74 129Z" fill="#A7FFF5"/>
+    <path d="M207 77L211 86L220 90L211 94L207 103L203 94L194 90L203 86L207 77Z" fill="#B9FFF5"/>
+  </g>
+</svg>

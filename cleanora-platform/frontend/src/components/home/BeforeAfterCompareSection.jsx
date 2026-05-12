@@ -26,7 +26,7 @@ function BeforeAfterCompareSection() {
             {proofCards.map((item) => (
               <div
                 key={item}
-                className="flex items-center gap-3 rounded-lg border border-slate-200 bg-cleanora-porcelain p-4 shadow-sm"
+                className="flex items-center gap-3 rounded-lg border border-white/70 bg-white/65 p-4 shadow-lg shadow-cleanora-ink/5 backdrop-blur-xl"
               >
                 <CheckCircle2 className="h-5 w-5 shrink-0 text-cleanora-mint" />
                 <span className="text-sm font-black text-cleanora-ink">{item}</span>
@@ -42,7 +42,7 @@ function BeforeAfterCompareSection() {
           </Button>
         </div>
 
-        <div className="mx-auto w-full max-w-[620px] rounded-2xl border border-slate-200 bg-white p-3 shadow-soft sm:p-4">
+        <div className="mx-auto w-full max-w-[620px] rounded-2xl border border-white/70 bg-white/70 p-3 shadow-xl shadow-cleanora-ink/10 backdrop-blur-xl sm:p-4">
           <div className="relative overflow-hidden rounded-xl bg-cleanora-mist">
             <Compare
               firstImage="/images/compare/before-cleaning.jpg"
