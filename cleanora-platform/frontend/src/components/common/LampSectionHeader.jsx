@@ -4,31 +4,33 @@ import { cn } from '../../lib/utils.js';
 
 function LampSectionHeader({ eyebrow, title, description, highlight, className }) {
   return (
-    <div className={cn('mx-auto mb-10 max-w-7xl overflow-hidden px-0 sm:mb-12', className)}>
-      <LampContainer className="min-h-[14rem] rounded-3xl border border-white/10 shadow-2xl shadow-cleanora-ink/20 sm:min-h-[16rem] md:min-h-[18rem]">
+    <div className={cn('mx-auto mb-10 max-w-7xl px-0 sm:mb-12', className)}>
+      <LampContainer
+        className="min-h-[260px] rounded-3xl border border-white/10 shadow-2xl shadow-cleanora-ink/20 sm:min-h-[280px] md:min-h-[300px]"
+        contentClassName="absolute inset-0 translate-y-0 justify-center px-5 py-8 sm:translate-y-0 sm:px-8 md:py-10"
+      >
         <motion.div
-          initial={{ opacity: 0.65, y: 28 }}
+          initial={{ opacity: 0.65, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.65, ease: 'easeOut' }}
-          className="mx-auto w-full max-w-4xl px-4"
+          className="mx-auto w-full max-w-4xl"
         >
           {eyebrow && (
-            <p className="text-xs font-black uppercase tracking-[0.22em] text-cleanora-mint sm:text-sm">
+            <p className="text-xs font-black uppercase tracking-[0.35em] text-cleanora-mint">
               {eyebrow}
             </p>
           )}
-          <h2 className="mx-auto mt-4 max-w-[17rem] break-words text-2xl font-black leading-tight tracking-tight text-white min-[420px]:max-w-3xl min-[420px]:text-3xl sm:text-4xl md:text-5xl">
+          <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
             {title}
-            {highlight && (
-              <>
-                <br />
-                <span className="text-cleanora-mint">{highlight}</span>
-              </>
-            )}
           </h2>
+          {highlight && (
+            <p className="mx-auto mt-2 max-w-4xl text-2xl font-extrabold leading-tight tracking-tight text-teal-300 sm:text-3xl md:text-5xl">
+              {highlight}
+            </p>
+          )}
           {description && (
-            <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-slate-200 sm:text-base sm:leading-7">
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-white/75 md:text-base md:leading-7">
               {description}
             </p>
           )}

@@ -12,7 +12,7 @@ const proofCards = [
 function BeforeAfterCompareSection() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-white via-cleanora-porcelain to-white px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-      <div className="pointer-events-none absolute right-0 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-cleanora-mint/14 blur-3xl" />
+      <div className="pointer-events-none absolute right-0 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-cleanora-mint/15 blur-3xl" />
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.78fr_1.1fr] lg:items-center">
         <div>
           <p className="text-xs font-black uppercase tracking-[0.28em] text-cleanora-mint sm:text-sm">Real Results</p>
@@ -27,7 +27,7 @@ function BeforeAfterCompareSection() {
             {proofCards.map((item) => (
               <div
                 key={item}
-                className="flex items-center gap-3 rounded-2xl border border-slate-200/70 bg-white/75 p-4 shadow-sm shadow-cleanora-ink/5 backdrop-blur-xl transition hover:-translate-y-0.5 hover:border-cleanora-mint/35 hover:shadow-lg"
+                className="flex items-center gap-3 rounded-2xl border border-slate-200/70 bg-white/75 p-4 shadow-sm shadow-cleanora-ink/5 backdrop-blur-xl transition hover:-translate-y-0.5 hover:border-cleanora-mint/40 hover:shadow-lg"
               >
                 <CheckCircle2 className="h-5 w-5 shrink-0 text-cleanora-mint" />
                 <span className="text-sm font-black text-cleanora-ink">{item}</span>
@@ -43,7 +43,7 @@ function BeforeAfterCompareSection() {
           </Button>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[720px] rounded-3xl border border-white/70 bg-white/75 p-3 shadow-2xl shadow-cleanora-ink/12 backdrop-blur-xl sm:p-4">
+        <div className="relative mx-auto w-full max-w-[720px] rounded-3xl border border-white/70 bg-white/75 p-3 shadow-2xl shadow-cleanora-ink/10 backdrop-blur-xl sm:p-4">
           <div className="pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full bg-cleanora-mint/25 blur-3xl" />
           <div className="relative overflow-hidden rounded-2xl bg-cleanora-mist">
             <Compare

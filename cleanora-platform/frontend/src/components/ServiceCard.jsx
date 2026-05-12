@@ -13,7 +13,7 @@ function formatPrice(price) {
 
 function ServiceCard({ service }) {
   return (
-    <Card className="group flex h-full flex-col overflow-hidden rounded-2xl border-slate-200/70 bg-white/85 shadow-sm backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-cleanora-mint/60 hover:shadow-xl hover:shadow-cleanora-ink/10">
+    <Card className="group flex h-full flex-col overflow-hidden rounded-2xl border-slate-200/70 bg-white/90 shadow-sm backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-cleanora-mint/60 hover:shadow-xl hover:shadow-cleanora-ink/10">
       <div className="relative aspect-[4/3] overflow-hidden bg-cleanora-mist">
         <img
           src={service.imageUrl}
@@ -21,12 +21,12 @@ function ServiceCard({ service }) {
           className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-cleanora-ink/35 via-transparent to-transparent opacity-70 transition group-hover:opacity-50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-cleanora-ink/30 via-transparent to-transparent opacity-70 transition group-hover:opacity-50" />
       </div>
 
       <CardContent className="flex flex-1 flex-col p-5">
         <div className="mb-3 flex items-center justify-between gap-3">
-          <Badge variant="secondary" className="rounded-full bg-cleanora-mint/12 text-cleanora-ink ring-1 ring-cleanora-mint/20">
+          <Badge variant="secondary" className="rounded-full bg-cleanora-mint/10 text-cleanora-ink ring-1 ring-cleanora-mint/20">
             {service.category}
           </Badge>
           {service.duration && (

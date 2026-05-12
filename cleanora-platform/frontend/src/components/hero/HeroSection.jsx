@@ -30,7 +30,7 @@ function HeroSection() {
         />
       )}
 
-      <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/72 to-white/10 sm:from-white/90 sm:via-white/58 sm:to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-white/10 sm:from-white/90 sm:via-white/60 sm:to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-t from-white/55 via-transparent to-white/15" />
       <div className="absolute -left-24 top-16 h-80 w-80 rounded-full bg-cleanora-mint/20 blur-3xl" />
       <div className="absolute inset-y-0 left-0 w-[min(860px,100%)] bg-white/20 blur-3xl" />

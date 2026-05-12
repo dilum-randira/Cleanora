@@ -49,10 +49,10 @@ function Home() {
           {aboutCards.map(({ title, description, Icon }) => (
             <Card
               key={title}
-              className="group border-slate-200/70 bg-white/75 shadow-sm backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-cleanora-mint/40 hover:shadow-xl hover:shadow-cleanora-ink/8"
+              className="group border-slate-200/70 bg-white/75 shadow-sm backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-cleanora-mint/40 hover:shadow-xl hover:shadow-cleanora-ink/10"
             >
               <CardContent className="p-6">
-                <span className="mb-5 grid h-11 w-11 place-items-center rounded-2xl bg-cleanora-mint/12 text-cleanora-mint ring-1 ring-cleanora-mint/20 transition group-hover:bg-cleanora-mint group-hover:text-white">
+                <span className="mb-5 grid h-11 w-11 place-items-center rounded-2xl bg-cleanora-mint/10 text-cleanora-mint ring-1 ring-cleanora-mint/20 transition group-hover:bg-cleanora-mint group-hover:text-white">
                   <Icon className="h-5 w-5" />
                 </span>
                 <h3 className="text-lg font-black tracking-tight">{title}</h3>
@@ -87,9 +87,9 @@ function Home() {
       <ReviewsSection />
 
       <section className="bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        <Card className="mx-auto max-w-6xl overflow-hidden rounded-3xl border-slate-200/70 bg-white/80 shadow-xl shadow-cleanora-ink/8 backdrop-blur-xl">
+        <Card className="mx-auto max-w-6xl overflow-hidden rounded-3xl border-slate-200/70 bg-white/80 shadow-xl shadow-cleanora-ink/10 backdrop-blur-xl">
           <CardContent className="relative flex flex-col items-start justify-between gap-6 p-8 md:flex-row md:items-center lg:p-10">
-            <div className="pointer-events-none absolute -left-20 -top-20 h-60 w-60 rounded-full bg-cleanora-mint/12 blur-3xl" />
+            <div className="pointer-events-none absolute -left-20 -top-20 h-60 w-60 rounded-full bg-cleanora-mint/10 blur-3xl" />
             <div>
               <p className="text-xs font-black uppercase tracking-[0.28em] text-cleanora-mint">Need help?</p>
               <h2 className="mt-3 text-3xl font-black tracking-tight text-cleanora-ink sm:text-4xl">

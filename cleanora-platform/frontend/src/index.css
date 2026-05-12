@@ -21,6 +21,11 @@ body {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+[id] {
+  scroll-margin-top: 90px;
 }
 
 a {
@@ -31,4 +36,10 @@ a {
 ::selection {
   color: #ffffff;
   background: #2ec4b6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
