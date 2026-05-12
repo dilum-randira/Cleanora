@@ -50,7 +50,8 @@ function ReviewsSection() {
   }, []);
 
   return (
-    <section id="reviews" className="px-4 py-20 sm:px-6 lg:px-8">
+    <section id="reviews" className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+      <div className="pointer-events-none absolute left-0 top-16 h-72 w-72 rounded-full bg-cleanora-mint/10 blur-3xl" />
       <SectionHeader
         eyebrow="Reviews"
         title="Trusted by careful homeowners and teams"
@@ -58,7 +59,7 @@ function ReviewsSection() {
       />
 
       {status === 'loading' && (
-        <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-3">
+        <div className="relative mx-auto grid max-w-6xl gap-5 md:grid-cols-3">
           {Array.from({ length: 3 }).map((_, index) => (
             <Card key={index}>
               <CardContent className="p-6">
@@ -86,22 +87,25 @@ function ReviewsSection() {
       )}
 
       {status === 'success' && reviews.length > 0 && (
-        <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="relative mx-auto grid max-w-7xl gap-5 md:grid-cols-2 xl:grid-cols-3">
           {reviews.map((review) => (
-            <Card key={review._id}>
-              <CardContent className="p-6">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="text-lg font-black text-cleanora-ink">{review.customerName}</h3>
-                  {review.serviceName && (
-                    <p className="mt-1 text-xs font-bold uppercase tracking-[0.14em] text-cleanora-mint">
-                      {review.serviceName}
-                    </p>
-                  )}
+            <Card
+              key={review._id}
+              className="group h-full rounded-2xl border-slate-200/70 bg-white/75 shadow-sm backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-cleanora-mint/40 hover:shadow-xl hover:shadow-cleanora-ink/10"
+            >
+              <CardContent className="flex h-full flex-col p-6">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 className="text-lg font-black text-cleanora-ink">{review.customerName}</h3>
+                    {review.serviceName && (
+                      <p className="mt-1 text-xs font-bold uppercase tracking-[0.14em] text-cleanora-mint">
+                        {review.serviceName}
+                      </p>
+                    )}
+                  </div>
+                  <RatingStars rating={review.rating} />
                 </div>
-                <RatingStars rating={review.rating} />
-              </div>
-              <p className="mt-5 text-sm leading-7 text-slate-600">{review.comment}</p>
+                <p className="mt-5 flex-1 text-sm leading-7 text-slate-600">{review.comment}</p>
               </CardContent>
             </Card>
           ))}

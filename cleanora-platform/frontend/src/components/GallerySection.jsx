@@ -46,27 +46,29 @@ const galleryItems = [
 
 function GallerySection() {
   return (
-    <section id="gallery" className="bg-white px-4 py-20 sm:px-6 lg:px-8">
+    <section id="gallery" className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+      <div className="pointer-events-none absolute right-10 top-24 h-72 w-72 rounded-full bg-cleanora-mint/10 blur-3xl" />
       <SectionHeader
         eyebrow="Gallery"
         title="Clean results, room by room"
         description="A polished preview of the spaces Cleanora is built to refresh, sanitize, and maintain."
       />
 
-      <div className="mx-auto grid max-w-7xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="relative mx-auto grid max-w-7xl gap-4 rounded-3xl border border-white/70 bg-white/60 p-3 shadow-xl shadow-cleanora-ink/5 backdrop-blur-xl sm:grid-cols-2 sm:p-4 lg:grid-cols-4">
         {galleryItems.map((item) => (
           <Card
             as="figure"
             key={item.label}
-            className="group relative overflow-hidden rounded-lg bg-cleanora-mist shadow-sm"
+            className="group relative overflow-hidden rounded-2xl border-white/50 bg-cleanora-mist shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-cleanora-ink/10"
           >
             <img
               src={item.imageUrl}
               alt={item.label}
-              className="aspect-[4/3] h-full w-full object-cover transition duration-500 group-hover:scale-105"
+              className="aspect-[4/3] h-full w-full object-cover transition duration-700 group-hover:scale-110"
               loading="lazy"
             />
-            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-cleanora-ink/85 to-transparent p-4 pt-12">
+            <div className="absolute inset-0 bg-gradient-to-t from-cleanora-ink/75 via-cleanora-ink/10 to-white/5 opacity-90 transition group-hover:opacity-75" />
+            <figcaption className="absolute inset-x-0 bottom-0 p-4 pt-12">
               <span className="text-sm font-black text-white">{item.label}</span>
             </figcaption>
           </Card>

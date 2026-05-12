@@ -37,7 +37,8 @@ function ServicesSection() {
   }, []);
 
   return (
-    <section id="services" className="bg-white px-4 py-20 sm:px-6 lg:px-8">
+    <section id="services" className="relative overflow-hidden bg-white px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+      <div className="pointer-events-none absolute left-0 top-20 h-80 w-80 rounded-full bg-cleanora-mint/10 blur-3xl" />
       <LampSectionHeader
         eyebrow="SERVICES"
         title="Service menu"
@@ -46,7 +47,7 @@ function ServicesSection() {
       />
 
       {status === 'loading' && (
-        <div className="mx-auto grid max-w-7xl gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="relative mx-auto grid max-w-7xl gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {Array.from({ length: 4 }).map((_, index) => (
             <Card key={index}>
               <CardContent className="p-4">
@@ -77,7 +78,7 @@ function ServicesSection() {
       )}
 
       {status === 'success' && services.length > 0 && (
-        <div className="mx-auto grid max-w-7xl gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="relative mx-auto grid max-w-7xl gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {services.map((service) => (
             <ServiceCard key={service._id} service={service} />
           ))}
