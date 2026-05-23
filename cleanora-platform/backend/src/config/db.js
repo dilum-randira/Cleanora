@@ -8,7 +8,21 @@ async function connectDB() {
     return;
   }
 
-  await mongoose.connect(mongoUri);
+  const timeoutMs = 10000;
+  const connection = mongoose.connect(mongoUri, {
+    serverSelectionTimeoutMS: timeoutMs,
+    connectTimeoutMS: timeoutMs,
+  });
+
+  await Promise.race([
+    connection,
+    new Promise((_, reject) => {
+      setTimeout(() => {
+        reject(new Error('MongoDB connection timed out after 10 seconds'));
+      }, timeoutMs);
+    }),
+  ]);
+
   console.log('MongoDB connected');
 }
 

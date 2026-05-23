@@ -1,0 +1,12 @@
+{
+  "name": "cleanora-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix cleanora-platform/frontend run dev",
+    "dev:frontend": "npm --prefix cleanora-platform/frontend run dev",
+    "dev:backend": "npm --prefix cleanora-platform/backend run dev",
+    "install:frontend": "npm --prefix cleanora-platform/frontend install",
+    "install:backend": "npm --prefix cleanora-platform/backend install"
+  }
+}
