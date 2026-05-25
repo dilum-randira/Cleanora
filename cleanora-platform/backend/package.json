@@ -8,6 +8,7 @@
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
     "seed:services": "node src/seeders/serviceSeeder.js",
+    "seed:bookings": "node src/seeders/bookingSeeder.js",
     "seed:reviews": "node src/seeders/reviewSeeder.js"
   },
   "dependencies": {
